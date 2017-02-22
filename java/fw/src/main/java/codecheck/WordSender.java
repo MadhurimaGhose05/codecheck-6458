@@ -20,7 +20,7 @@ public WordSender(Socket socket) {
 @Override
 public void run() {
     try {
-        Player.word = Player.startWord;
+        Player.word = Player.getShiritoriWord(Player.startWord);
         while(true){
             synchronized(this) {
             OutputStream os = socket.getOutputStream();
@@ -32,8 +32,7 @@ public void run() {
         }
     } catch (NullPointerException e) {
         //connectionが存在しない場合、ローカルで実行する
-        String word = Player.getShiritoriWord(Player.startWord);
-        System.out.println(word);
+        System.out.println(Player.word);
         System.exit(0);
     } catch (IOException e) {
         e.printStackTrace();

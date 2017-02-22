@@ -34,11 +34,6 @@ public class PlayerThread extends Thread {
             String word = null, playerStr = null;
             byte[] b = new byte[1024];
 
-            // //ゲーム始めのサインを一番のプレイヤに送る
-            //     word = this.playerID==0 ? "0" : "1";
-            //     os = this.player.getOutputStream();
-            //     os.write(word.getBytes());
-
             while(true){
                                 
                 if(Referee.isGameOver()) {

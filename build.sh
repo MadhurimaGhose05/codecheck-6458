@@ -10,3 +10,4 @@ mvn install:install-file -Dfile=$ROOT/java/fw/target/fw-1.0-SNAPSHOT.jar -Dgroup
 
 cd $ROOT/java/ai
 mvn package -Dmaven.test.skip=true
+

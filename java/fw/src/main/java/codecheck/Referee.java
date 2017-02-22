@@ -57,6 +57,7 @@ synchronized public static void showJudgementResult(String word, String playerSt
     if(playerStr != null && !isGameOver) {
         //最初に二人のプレイヤが揃える前に送った単語は無視する。
         if(word.equals(" ") || !Shiritori.dict.contains(word)) {
+            word = (word.equals(" ")) ? "" : word;
             System.out.println(playerStr + " (NG): " + word);
             System.out.println( "WIN - " + (playerStr.equals("FIRST") ? "SECOND" : "FIRST"));
             isGameOver = true;
@@ -73,7 +74,8 @@ synchronized public static boolean isGameOver() {
 public static void gameOver() {
     try {
         referee.close();
-        System.exit(1);
+        Sytem.out.println("the end")
+        System.exit(0);
     } catch (IOException e) {
         System.out.println("Errors occured when closing Socket or ServerSocket!");
         e.printStackTrace();
