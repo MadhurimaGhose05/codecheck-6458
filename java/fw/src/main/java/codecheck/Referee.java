@@ -1,9 +1,9 @@
 package codecheck;
 /*
-Referee class of Shiritori Framework
-審判クラス、ゲームの審判になる。
-二人のプレイヤが必要のためThreadで管理
-Create by chi on 02/19/2017
+	Referee class of Shiritori Framework
+	審判クラス、ゲームの審判になる。
+	二人のプレイヤが必要のためThreadで管理
+	Create by chi on 02/19/2017
 */
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Referee {
     public Referee() {
         try {
             //only two players can be connectable
-            referee = new ServerSocket(9993, 2); 
+            referee = new ServerSocket(9995, 2); 
         } catch (BindException e) {
             // e.printStackTrace();
             System.exit(1);
@@ -53,31 +53,18 @@ public class Referee {
         }
     }
 
-    // synchronized public static void showJudgementResult(String word, String playerStr) {
-    //     if(playerStr != null && !isGameOver) {
-    //         //最初に二人のプレイヤが揃える前に送った単語は無視する。
-    //         if(word.equals(" ") || !Shiritori.dict.contains(word)) {
-    //             word = (word.equals(" ")) ? "" : word;
-    //             System.out.println(playerStr + " (NG): " + word);
-    //             System.out.println( "WIN - " + (playerStr.equals("FIRST") ? "SECOND" : "FIRST"));
-    //             isGameOver = true;
-    //         } else {
-    //             System.out.println(playerStr + " (OK): " + word);
-    //         }
-    //     }
-    // }
-
-    // synchronized public static String judgeNSetWord (String word, String playerStr) {
-    //     if(playerStr != null && !isGameOver) {
-    //         //最初に二人のプレイヤが揃える前に送った単語は無視する。
-    //         if(word.equals(" ") || !Shiritori.dict.contains(word)) {
-    //             isGameOver = true;
-    //         } 
-
-    //         word = word+", "+playerStr;
-    //     }
-    //     return word;
-    // }
+    synchronized public static void showJudgementResult(String word, String playerStr) {
+        if(playerStr != null && !isGameOver) {
+            //最初に二人のプレイヤが揃える前に送った単語は無視する。
+            if(word.equals(" ") || !Shiritori.dict.contains(word)) {
+                System.out.println(playerStr + " (NG):" + word);
+                System.out.println( "WIN - " + (playerStr.equals("FIRST") ? "SECOND" : "FIRST"));
+                isGameOver = true;
+            } else {
+                System.out.println(playerStr + " (OK): " + word);
+            }
+        }
+    }
 
     synchronized public static boolean isGameOver() {
         return isGameOver;
@@ -93,3 +80,4 @@ public class Referee {
         }
     }
 }
+

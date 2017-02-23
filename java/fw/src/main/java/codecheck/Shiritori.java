@@ -1,7 +1,7 @@
 package codecheck;
 /*
-Shiritori Framework
-Create by chi on 02/19/2017
+	Shiritori Framework
+	Create by chi on 02/19/2017
 */
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,8 +16,7 @@ public class Shiritori {
 	}
 
 	public Shiritori(ArrayList<String> dict) throws IOException {
-	//    dict.remove(dict.get(0));
-		Shiritori.dict = dict;
+		this.dict = dict;
 		createReferee();
 		waitPlayer();
 	}

@@ -1,12 +1,20 @@
 package codecheck;
-
 /*
-	AI class of Shiritori Framework
+	Player class of Shiritori Framework
 	Create by chi on 02/19/2017
 */
 
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class AI extends Player {
 
@@ -14,12 +22,12 @@ public class AI extends Player {
     public void setDict(ArrayList<String> dict) {
         setStartWord(dict.get(0));
         dict.remove(dict.get(0));
-        Player.dict = dict;
+        this.dict = dict;
     }
 
     @Override
     public void setStartWord(String word) {
-        Player.startWord = word;
+        this.startWord = word;
     }
 
     public static void main(String[] args) {
@@ -30,7 +38,7 @@ public class AI extends Player {
         
         AI ai = new AI();
         ai.setDict(new ArrayList<String>(Arrays.asList(args)));
-        configRefereeInfo("127.0.0.1", 9993);
+        configRefereeInfo("127.0.0.1", 9995);
         joinGame();
     }
 }

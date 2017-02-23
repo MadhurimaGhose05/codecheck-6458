@@ -1,5 +1,4 @@
 package codecheck;
-
 /*
 	Main class of Shiritori Framework
 	Create by chi on 02/19/2017

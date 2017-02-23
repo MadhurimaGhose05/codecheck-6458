@@ -1,6 +1,6 @@
 package codecheck;
 /*
-    PlayerThread class of Shiritori Framework
+    Player class of Shiritori Framework
     Create by chi on 02/19/2017
 */
 
@@ -35,47 +35,36 @@ public class PlayerThread extends Thread {
             byte[] b = new byte[1024];
 
             while(true){
-                
-                // if(Referee.isGameOver()) {
-                //     this.player.close();
-                //     Referee.gameOver();
-                // }   
-
-                synchronized(this) {
-
-                    is = player.getInputStream();
-                    Referee.word = new String(b, 0 , is.read(b));
-
-                    for(Socket toPlayer: players){
-                        if(this.player != toPlayer){  
-                            playerStr = (this.playerID==0) ? "FIRST" : "SECOND";
-                            
-                            if(Referee.word.equals("my name?")) {
-                                Referee.word = playerStr;
+                                
+                if(Referee.isGameOver()) {
+                    this.player.close();
+                    Referee.gameOver();
+                }   
+                    synchronized(this) {
+                        is = player.getInputStream();
+                        word = new String(b, 0 , is.read(b));
+                        for(Socket toPlayer: players){
+                            if(this.player != toPlayer){  
+                                os = toPlayer.getOutputStream();
+                                os.write(word.getBytes());
+                                playerStr = (this.playerID==0) ? "SECOND" : "FIRST";
                             }
-
-                            os = toPlayer.getOutputStream();
-                            os.write(Referee.word.getBytes());
                         }
-                    }
 
-                    // Referee.showJudgementResult(Referee.word, playerStr);
-                    // Referee.judgeNSetWord(word, playerStr);
-                }
+                        Referee.showJudgementResult(word, playerStr);
+                    }
             }            
         } catch (SocketException e) {
+            System.exit(0);
             try{
                 this.player.close();
                 is.close();
                 os.close();
             }catch(Exception ee){}
-
             // e.printStackTrace();
         } catch (IOException e) {
             System.out.println("IOException");
             e.printStackTrace();
-        } finally {
-            System.exit(1);
         }
     }
 

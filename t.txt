@@ -1,0 +1,8 @@
+internet
+FIRST (OK): internet
+SECOND (OK): tail
+FIRST (OK): less
+SECOND (OK): sed
+FIRST (NG): 
+WIN - SECOND
+internet
