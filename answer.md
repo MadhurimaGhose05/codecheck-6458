@@ -1,4 +1,5 @@
-#開発物・成果物
+#開発物・成果物 
+[Github: donaldchi](https://github.com/donaldchi)
 ##アルバイト
 
 1. iOSアプリの作成、サーバーの構築
