@@ -27,17 +27,27 @@ public void run() {
         while(true){
             synchronized(this) {
                 if(Player.word==null) {
-                    is = socket.getInputStream();
+                    is = this.socket.getInputStream();
                     word = new String(b, 0, is.read(b));
-                    word = Player.getShiritoriWord(word);
-
+                    
+                    if(Player.playerID  ==null && 
+                        (word.equals("FIRST") || word.equals("SECOND"))) {
+                        Player.playerID = word;
+                        word = word.equals("FIRST") ? "SECOND" : "FIRST";
+                    } else {
+                        word = Player.getShiritoriWord(word);
+                    }
+                    
                     Player.word = word;
 
                     this.notify();
 
-                    if(word.equals(" ")) {
-                        System.exit(1);
-                    }
+                    // if(word.equals("")) {
+                    //     Player.word = Player.playerID.equals("FIRST") ? "SECOND" : "FIRST";
+                    //     System.out.println("WIN - " + Player.word);
+
+                    //     System.exit(0);
+                    // }
                 }
             }
 

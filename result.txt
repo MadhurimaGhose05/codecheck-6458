@@ -1,0 +1,28 @@
+not ok 5 Exam 2A - Framework should solve a simple case and the second player should win
+  Error: Expected 'internet' to match /^FIRST \(OK\): internet$/
+      at assert (node_modules/expect/lib/assert.js:29:9)
+      at Expectation.toMatch (node_modules/expect/lib/Expectation.js:138:28)
+      at _.zip.forEach (test/test_open_exam2a-fw.js:35:57)
+      at Array.forEach (native)
+      at test/test_open_exam2a-fw.js:35:27
+      at Generator.next (<anonymous>)
+      at onFulfilled (node_modules/co/index.js:65:19)
+      at process._tickCallback (internal/process/next_tick.js:103:7)
+
+
+
+/Users/chi/codecheck-6458
+1..5
+ok 1 Exam 2A - AI should fail without arguments
+ok 2 Exam 2A - AI should return the answer if word list consists of only one answer word
+ok 3 Exam 2A - AI should return the answer if word list contains an answer in the middle
+ok 4 Exam 2A - Framework should solve a simple case and the first player should win
+ok 5 Exam 2A - Framework should solve a simple case and the second player should win
+# tests 5
+# pass 5
+# fail 0
+
+codecheck: Finish with code 0
+codecheck: tests  : 5
+codecheck: success: 5
+codecheck: failure: 0
