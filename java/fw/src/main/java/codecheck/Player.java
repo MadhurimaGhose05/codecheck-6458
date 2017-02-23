@@ -1,21 +1,15 @@
-package codecheck;
 /*
-	Player class of Shiritori Framework
-	Create by chi on 02/19/2017
+    Player class of Shiritori Framework
+    Create by chi on 02/19/2017
+    説明: shiritoriゲームのプレイヤクラス
 */
 
+package codecheck;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.net.ConnectException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.BufferedReader;
-import java.io.FileReader;
-
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 abstract class Player {
 	public static String word = null; //受け取る、言い出す単語
@@ -64,6 +58,6 @@ abstract class Player {
 
     public static void joinGame() {
         new WordSender(socket).start();
-        new WordReceiver(socket, 0).start();
+        new WordReceiver(socket).start();
     }
 }

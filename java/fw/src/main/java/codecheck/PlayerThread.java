@@ -1,9 +1,12 @@
-package codecheck;
 /*
-    Player class of Shiritori Framework
+    PlayerThread class of Shiritori Framework
     Create by chi on 02/19/2017
+    説明: Refereeクラスから生成され、
+    各プレイヤが言い出した単語の受付、
+    ゲームの判断などを行う。
 */
 
+package codecheck;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -55,12 +58,12 @@ public class PlayerThread extends Thread {
                     }
             }            
         } catch (SocketException e) {
-            System.exit(0);
             try{
                 this.player.close();
                 is.close();
                 os.close();
             }catch(Exception ee){}
+            System.exit(0);
             // e.printStackTrace();
         } catch (IOException e) {
             System.out.println("IOException");

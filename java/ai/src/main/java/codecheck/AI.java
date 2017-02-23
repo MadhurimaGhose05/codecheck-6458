@@ -1,20 +1,14 @@
-package codecheck;
 /*
-	Player class of Shiritori Framework
-	Create by chi on 02/19/2017
+    AI class of Shiritori Framework
+    Create by chi on 02/19/2017
+    説明: shiritoriゲームのplayerクラスから
+    継承したAIクラス
 */
 
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.BufferedReader;
-import java.io.FileReader;
+package codecheck;
 
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class AI extends Player {
 
@@ -22,13 +16,19 @@ public class AI extends Player {
     public void setDict(ArrayList<String> dict) {
         setStartWord(dict.get(0));
         dict.remove(dict.get(0));
-        this.dict = dict;
+        Player.dict = dict;
     }
+    
+    // public void setDictFromFile() {
+        
+    // }
 
     @Override
     public void setStartWord(String word) {
-        this.startWord = word;
+        Player.startWord = word;
     }
+
+
 
     public static void main(String[] args) {
         if(args.length<0) {

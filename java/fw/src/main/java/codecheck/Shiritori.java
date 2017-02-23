@@ -1,8 +1,10 @@
-package codecheck;
 /*
 	Shiritori Framework
 	Create by chi on 02/19/2017
+	説明: shiritoriゲームクラス
 */
+
+package codecheck;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,7 +18,7 @@ public class Shiritori {
 	}
 
 	public Shiritori(ArrayList<String> dict) throws IOException {
-		this.dict = dict;
+		Shiritori.dict = dict;
 		createReferee();
 		waitPlayer();
 	}

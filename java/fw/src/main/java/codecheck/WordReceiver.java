@@ -1,26 +1,21 @@
-package codecheck;
 /*
-    Player class of Shiritori Framework
-    Create by chi on 02/19/2017
+    WordReceiver class of Shiritori Framework
+Create by chi on 02/19/2017
+    説明: 相手プレイヤが言い出した単語を
+    審判から受け取る
 */
 
+package codecheck;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-import java.io.BufferedReader;
-
 class WordReceiver extends Thread {
 
     private final Socket socket;
-    private final int startPlayerID;
 
-    public WordReceiver(Socket socket, int startPlayerID) {
+    public WordReceiver(Socket socket) {
         this.socket = socket;
-        this.startPlayerID = startPlayerID;
     }
 
     @Override

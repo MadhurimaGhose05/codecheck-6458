@@ -1,13 +1,15 @@
-package codecheck;
 /*
-    Player class of Shiritori Framework
+    WordSender class of Shiritori Framework
     Create by chi on 02/19/2017
+    説明: 相手プレイヤからの単語を
+    元にshiritori単語を抽出し、
+    審判に送る
 */
 
+package codecheck;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.Scanner;
 import java.lang.NullPointerException;
 
 class WordSender extends Thread {

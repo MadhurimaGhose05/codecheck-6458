@@ -1,11 +1,11 @@
-package codecheck;
 /*
-	Referee class of Shiritori Framework
-	審判クラス、ゲームの審判になる。
-	二人のプレイヤが必要のためThreadで管理
-	Create by chi on 02/19/2017
+    Referee class of Shiritori Framework
+    Create by chi on 02/19/2017
+    説明: 審判クラス、ゲームの審判になる。
+    二人のプレイヤが必要のためThreadで管理
 */
 
+package codecheck;
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.BindException;
@@ -46,8 +46,8 @@ public class Referee {
                 playerID++;
             }
         } catch (SocketException e) {
-            System.exit(1);
             e.printStackTrace();
+            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
         }
