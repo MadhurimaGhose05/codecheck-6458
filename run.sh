@@ -13,7 +13,7 @@ done
 ### Java ###
 java -jar $(ls $ROOT/java/fw/target/fw-*.jar) $dict &
 
-sleep 2
+sleep 1
 
 ./ai.sh $dict &
 

@@ -1,16 +1,115 @@
-not ok 5 Exam 2A - Framework should solve a simple case and the second player should win
-  Error: Expected 'internet' to match /^FIRST \(OK\): internet$/
-      at assert (node_modules/expect/lib/assert.js:29:9)
-      at Expectation.toMatch (node_modules/expect/lib/Expectation.js:138:28)
-      at _.zip.forEach (test/test_open_exam2a-fw.js:35:57)
-      at Array.forEach (native)
-      at test/test_open_exam2a-fw.js:35:27
-      at Generator.next (<anonymous>)
-      at onFulfilled (node_modules/co/index.js:65:19)
-      at process._tickCallback (internal/process/next_tick.js:103:7)
-
-
-
+chi-no-MacBook-Air:codecheck-6458 chi$ codecheck
+codecheck version 0.6.1
+codecheck: appCommand: node index.js
+codecheck: testCommand: bash ./test.sh
+Start build: npm install
+npm WARN TechnologySpecialistChallenge@1.0.0 No repository field.
+npm WARN TechnologySpecialistChallenge@1.0.0 No license field.
+Finish build: npm install (4847ms)
+sed: 1: "./ai.sh": invalid command code .
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building fw 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ fw ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/chi/codecheck-6458/java/fw/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ fw ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ fw ---
+[INFO] Not copying test resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ fw ---
+[INFO] Not compiling test sources
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ fw ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ fw ---
+[INFO]
+[INFO] --- maven-shade-plugin:2.3:shade (default) @ fw ---
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /Users/chi/codecheck-6458/java/fw/target/fw-1.0-SNAPSHOT.jar with /Users/chi/codecheck-6458/java/fw/target/fw-1.0-SNAPSHOT-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.599 s
+[INFO] Finished at: 2017-02-23T15:32:47+09:00
+[INFO] Final Memory: 10M/126M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building fw 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install-file (default-cli) @ fw ---
+[INFO] Installing /Users/chi/codecheck-6458/java/fw/target/fw-1.0-SNAPSHOT.jar to /Users/chi/.m2/repository/codecheck/fw/1.0-SNAPSHOT/fw-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.721 s
+[INFO] Finished at: 2017-02-23T15:32:52+09:00
+[INFO] Final Memory: 6M/123M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ai 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ai ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/chi/codecheck-6458/java/ai/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ ai ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ai ---
+[INFO] Not copying test resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ ai ---
+[INFO] Not compiling test sources
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ ai ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ ai ---
+[INFO]
+[INFO] --- maven-shade-plugin:2.3:shade (default) @ ai ---
+[INFO] Including codecheck:fw:jar:1.0-SNAPSHOT in the shaded jar.
+[WARNING] fw-1.0-SNAPSHOT.jar, ai-1.0-SNAPSHOT.jar define 7 overlappping classes:
+[WARNING]   - codecheck.Referee
+[WARNING]   - codecheck.Player
+[WARNING]   - codecheck.Main
+[WARNING]   - codecheck.WordSender
+[WARNING]   - codecheck.Shiritori
+[WARNING]   - codecheck.PlayerThread
+[WARNING]   - codecheck.WordReceiver
+[WARNING] maven-shade-plugin has detected that some .class files
+[WARNING] are present in two or more JARs. When this happens, only
+[WARNING] one single version of the class is copied in the uberjar.
+[WARNING] Usually this is not harmful and you can skeep these
+[WARNING] warnings, otherwise try to manually exclude artifacts
+[WARNING] based on mvn dependency:tree -Ddetail=true and the above
+[WARNING] output
+[WARNING] See http://docs.codehaus.org/display/MAVENUSER/Shade+Plugin
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /Users/chi/codecheck-6458/java/ai/target/ai-1.0-SNAPSHOT.jar with /Users/chi/codecheck-6458/java/ai/target/ai-1.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /Users/chi/codecheck-6458/java/ai/dependency-reduced-pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.889 s
+[INFO] Finished at: 2017-02-23T15:33:01+09:00
+[INFO] Final Memory: 11M/159M
+[INFO] ------------------------------------------------------------------------
+npm WARN TechnologySpecialistChallenge@1.0.0 No repository field.
+npm WARN TechnologySpecialistChallenge@1.0.0 No license field.
 /Users/chi/codecheck-6458
 1..5
 ok 1 Exam 2A - AI should fail without arguments
