@@ -46,8 +46,8 @@ public class Referee {
                 playerID++;
             }
         } catch (SocketException e) {
-            e.printStackTrace();
-            System.exit(1);
+            // e.printStackTrace();
+            System.exit(0);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,6 +62,7 @@ public class Referee {
                 isGameOver = true;
             } else {
                 System.out.println(playerStr + " (OK): " + word);
+                Shiritori.dict.remove(word);
             }
         }
     }

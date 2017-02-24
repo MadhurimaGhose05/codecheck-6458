@@ -44,10 +44,9 @@ class WordReceiver extends Thread {
 
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         } finally {
-            System.out.println("exit");
-            System.exit(1);
+            System.exit(0);
         }
     }
 

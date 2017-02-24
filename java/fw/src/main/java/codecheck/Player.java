@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 import java.net.ConnectException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.lang.StringBuffer;
 
 abstract class Player {
 	public static String word = null; //受け取る、言い出す単語
@@ -39,6 +40,29 @@ abstract class Player {
     //最初の単語を指定する
     abstract public void setStartWord(String word);
 
+    //単語の制約を定義する
+    abstract public void wordRestriction();
+
+    //制御文字が含まれている場合、削除する。
+    private static void deleteControlCharsOfDict() {
+        for (int i=0; i<dict.size(); i++) {
+            dict.set(i, deleteControlChars(dict.get(i)));
+        }
+    }
+
+    //制御文字が含まれている場合、削除する。
+    private static String deleteControlChars(String s){
+        // Control Codes 0 <= 001f and 007f
+        StringBuffer buf = new StringBuffer();
+        for(char ch : s.toCharArray()){
+            if(ch > 0x1f && !(ch >= 0x7f && ch <= 0x9f)){
+                buf.append(ch);
+            }
+        }
+        return buf.toString();
+    }
+
+
     //審判となるサーバーのアドレスとポート番号を設定
     public static void configRefereeInfo(String refereeIP, int refereePort) {
         try {
@@ -57,6 +81,10 @@ abstract class Player {
     }
 
     public static void joinGame() {
+        
+        //制御文字が含まれている場合、削除する。
+        deleteControlCharsOfDict();
+
         new WordSender(socket).start();
         new WordReceiver(socket).start();
     }

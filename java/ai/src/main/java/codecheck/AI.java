@@ -24,13 +24,29 @@ public class AI extends Player {
         Player.dict = dict;
     }
 
+    @Override
+    public void setStartWord(String word) {
+        Player.startWord = word;
+    }
+
+    @Override
+    public void wordRestriction() {
+        // //入力単語の単語数の最大は 1000 単語とする。
+        if(Player.dict.size()>1001) {
+            System.out.println("The max word dictionary size is 1000!");
+            System.out.println("Your dictionary size: " + Player.dict.size());
+            System.exit(0);
+        }
+        for(String word : Player.dict) {
+            if(word.length()>10000) {
+                System.out.println("The length of each word should be less than 10000!");
+                System.out.println("Your word size: " + word.length() + ", word: " + word);
+                System.exit(0);
+            }
+        }
+    }
+
     public void setDictFromFile() {
-        // try {
-            // Stream<String> stream = Files.lines(Paths.get("dict.txt"));
-            // Player.dict.addAll(stream.collect(Collectors.toList()));
-            // for (String s : Player.dict ) {
-                // System.out.println("input: " + s);
-            // }
         FileReader files = null;
         try {
             files = new FileReader("dict.txt");
@@ -48,11 +64,6 @@ public class AI extends Player {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void setStartWord(String word) {
-        Player.startWord = word;
     }
 
     public void options(String[] args) {
@@ -77,9 +88,17 @@ public class AI extends Player {
         }
         
         AI ai = new AI();
-        // ai.setDict(new ArrayList<String>(Arrays.asList(args)));
+        
+        //optionsによってword dictionaryの設定が変わる
         ai.options(args);
+        
+        //単語群のサイズ、一つの単語の長さなど制限を指定する
+        ai.wordRestriction();
+
+        //接続する審判プログラムを指定
         configRefereeInfo("127.0.0.1", 9995);
+
+        //ゲームに参加
         joinGame();
     }
 }

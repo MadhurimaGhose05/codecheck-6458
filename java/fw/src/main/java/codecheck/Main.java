@@ -19,6 +19,7 @@ public class Main {
         }
         int portNum = 9995;
 		ArrayList<String> dict = new ArrayList<String>(Arrays.asList(args));
+
 		Shiritori shiritori = new Shiritori(dict, portNum);
 
 	}
