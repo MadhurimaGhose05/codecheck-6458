@@ -29,7 +29,8 @@
 ```
     ./run.sh ./ai.sh ./ai.sh shiritori internet tail grep less telnet sed
 ```
-### AIプログラムのオプション実行 (-f オプションでdict.txtファイルからword dictionaryを読み取ることになる。)
+### AIプログラムのオプション実行 
+(-f オプションでdict.txtファイルからword dictionaryを読み取ることになる。)
 ```
     ./ai.sh -f
 ```
