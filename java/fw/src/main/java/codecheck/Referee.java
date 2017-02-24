@@ -22,10 +22,10 @@ public class Referee {
     public static String word = null;
     public static int activePlayerID = 0;
 
-    public Referee() {
+    public Referee(int portNum) {
         try {
             //only two players can be connectable
-            referee = new ServerSocket(9995, 2); 
+            referee = new ServerSocket(portNum, 2); 
         } catch (BindException e) {
             // e.printStackTrace();
             System.exit(1);

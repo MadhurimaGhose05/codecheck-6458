@@ -17,9 +17,9 @@ public class Main {
             System.out.println("Please insert word dictionary!");
             System.exit(1);
         }
-
+        int portNum = 9995;
 		ArrayList<String> dict = new ArrayList<String>(Arrays.asList(args));
-		Shiritori shiritori = new Shiritori(dict);
+		Shiritori shiritori = new Shiritori(dict, portNum);
 
 	}
 }
