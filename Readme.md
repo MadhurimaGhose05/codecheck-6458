@@ -20,8 +20,16 @@
     2.5 WordReceiver, WordSender : Playerクラスから生成され、それぞれ、相手の単語を審判から受け取ったり、プレイヤが言い出す単語を審判に送ったりなどのことを行う。
 
 ##実行
-###build
+###ビルド
 ```
     ./remove.sh
     ./build.sh
+```
+###実行
+```
+    ./run.sh ./ai.sh ./ai.sh shiritori internet tail grep less telnet sed
+```
+### AIプログラムのオプション実行 (-f オプションでdict.txtファイルからword dictionaryを読み取ることになる。)
+```
+    ./ai.sh -f
 ```
